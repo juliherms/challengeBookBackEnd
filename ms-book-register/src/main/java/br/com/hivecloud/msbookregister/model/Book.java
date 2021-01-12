@@ -12,6 +12,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * This class responsible to represents book in the system
+ * 
+ * @author jlv
+ *
+ */
 @Entity
 @Table(name = "TB_BOOK")
 @Data
