@@ -1,7 +1,5 @@
 package br.com.hivecloud.msbookregister.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.hivecloud.msbookregister.exception.NotFoundException;
 import br.com.hivecloud.msbookregister.model.TargetBook;
 import br.com.hivecloud.msbookregister.model.UserBook;
 import br.com.hivecloud.msbookregister.repository.UserRepository;
@@ -21,8 +20,12 @@ public class UserService {
 
 	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 	public TargetBook findUserBookTarget(Long userId, int year) {
-		Optional<TargetBook> optional = repo.findByBookTarget(userId, year);
-		return optional.get();
+		
+		TargetBook targetBook = repo.findByBookTarget(userId, year).orElseThrow(() ->
+			new NotFoundException(String.format("Não foi encontrado registro com os parâmetros informados: %s ",userId.toString()))
+		);
+		
+		return targetBook;
 	}
 
 	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
