@@ -36,7 +36,6 @@ public class UserController {
 	public ResponseEntity<Page<UserBook>> findBooks(@PathVariable Long id, Pageable pageable) {
 
 		Page<UserBook> list = service.findUserBooks(id, pageable);
-
 		return ResponseEntity.ok(list);
 	}
 

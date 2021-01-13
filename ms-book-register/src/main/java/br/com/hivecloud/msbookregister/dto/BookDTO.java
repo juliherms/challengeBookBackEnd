@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * This class responsible to represents BookDTO
+ * 
  * @author jlv
  *
  */
@@ -18,7 +19,10 @@ import lombok.NoArgsConstructor;
 public class BookDTO {
 
 	@NotBlank
-	private String name;
+	private String title;
+
+	@NotBlank
+	private String author;
 
 	@NotEmpty
 	private int year;

@@ -1,6 +1,6 @@
-INSERT INTO tb_book (title,year) VALUES ('Uma Terra Prometida',2020);
-INSERT INTO tb_book (title,year) VALUES ('Rápido e Devagar',2020);
-INSERT INTO tb_book (title,year) VALUES ('A Arte de Fazer Acontecer',2020);
+INSERT INTO tb_book (title,author,year) VALUES ('Uma Terra Prometida','teste',2020);
+INSERT INTO tb_book (title,author,year) VALUES ('Rápido e Devagar','teste',2020);
+INSERT INTO tb_book (title,author,year) VALUES ('A Arte de Fazer Acontecer','teste',2020);
 
 INSERT INTO tb_user(name,login,password,email) VALUES ('Ana', 'ana','12345','ana@email.com')
 INSERT INTO tb_user(name,login,password,email) VALUES ('Carlos', 'carlos','12345','carlos@email.com')
