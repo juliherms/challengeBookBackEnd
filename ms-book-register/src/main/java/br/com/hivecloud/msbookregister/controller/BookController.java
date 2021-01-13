@@ -49,7 +49,7 @@ public class BookController {
 	 * @return
 	 */
 	@PostMapping
-	@ApiOperation(value = "create books in the api", response = BookDTO.class)
+	@ApiOperation(value = "create books", response = BookDTO.class)
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "CREATED") })
 	public ResponseEntity<BookDTO> create(@RequestBody @Valid BookDTO dto) {
 
@@ -67,7 +67,7 @@ public class BookController {
 	 * @return
 	 */
 	@GetMapping
-	@ApiOperation("Find all books")
+	@ApiOperation("find all books")
 	public ResponseEntity<Page<BookDTO>> list(Pageable pageable) {
 
 		Page<Book> bookList = service.findAll(pageable);
@@ -76,7 +76,7 @@ public class BookController {
 		return ResponseEntity.ok(result);
 	}
 
-	@ApiOperation("Find all comments by book")
+	@ApiOperation("find all comments by book")
 	@GetMapping("{id}/comments")
 	public ResponseEntity<Page<Comment>> listComments(@PathVariable Long id, Pageable pageable) {
 

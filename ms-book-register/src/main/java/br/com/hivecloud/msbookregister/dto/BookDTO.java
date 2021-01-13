@@ -1,7 +1,6 @@
 package br.com.hivecloud.msbookregister.dto;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +23,5 @@ public class BookDTO {
 	@NotBlank
 	private String author;
 
-	@NotEmpty
 	private int year;
 }
