@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.hivecloud.msbookregister.model.Book;
+import br.com.hivecloud.msbookregister.model.Comment;
 import br.com.hivecloud.msbookregister.repository.BookRepository;
 
 @Service
@@ -31,6 +32,11 @@ public class BookService {
 	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 	public List<Book> findByYear(int year) {
 		return repo.findByYear(year);
+	}
+
+	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+	public Page<Comment> findCommentsByBook(Long bookId, Pageable pageable) {
+		return repo.findCommentsByBook(bookId, pageable);
 	}
 
 	@Transactional

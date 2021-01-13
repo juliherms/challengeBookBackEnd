@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.hivecloud.msbookregister.dto.BookDTO;
 import br.com.hivecloud.msbookregister.mapper.BookMapper;
 import br.com.hivecloud.msbookregister.model.Book;
+import br.com.hivecloud.msbookregister.model.Comment;
 import br.com.hivecloud.msbookregister.service.BookService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -74,8 +76,17 @@ public class BookController {
 		return ResponseEntity.ok(result);
 	}
 
+	@ApiOperation("Find all comments by book")
+	@GetMapping("{idBook}/comments")
+	public ResponseEntity<Page<Comment>> listComments(@PathVariable Long idBook, Pageable pageable) {
+
+		Page<Comment> commentsList = service.findCommentsByBook(idBook, pageable);
+		return ResponseEntity.ok(commentsList);
+	}
+
 	/**
 	 * This method responsible to list books by title
+	 * 
 	 * @param title
 	 * @param pageable
 	 * @return

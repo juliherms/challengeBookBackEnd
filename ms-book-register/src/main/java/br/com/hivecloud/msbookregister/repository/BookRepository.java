@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import br.com.hivecloud.msbookregister.model.Book;
+import br.com.hivecloud.msbookregister.model.Comment;
 
 /**
  * This class responsible to access book table
@@ -27,5 +28,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
 	@Query("SELECT obj FROM Book obj WHERE obj.title LIKE %:title%")
 	Page<Book> findByTitleLike(@Param("title") String title, Pageable pageable);
+	
+	@Query("SELECT obj FROM Comment obj WHERE obj.book.id = :bookId")
+	Page<Comment> findCommentsByBook(@Param("bookId") Long bookId, Pageable pageable);
 
 }
