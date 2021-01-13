@@ -16,7 +16,7 @@ import br.com.hivecloud.msbookregister.model.Book;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-	Optional<Book> findByName(String name);
+	Optional<Book> findByTitle(String title);
 
 	List<Book> findByYear(int year);
 

@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+
+  #MySQL Database 
+  mysql-database: 
+    container_name: mysql-book
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 12345
+      MYSQL_DATABASE: book
+      MYSQL_ROOT_PASSWORD: 12345
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - mysql-db-file:/var/lib/mysql
+# Names our volume
+volumes:
+  mysql-db-file:

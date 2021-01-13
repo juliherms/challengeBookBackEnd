@@ -30,7 +30,7 @@ public class Book {
 	private long id;
 
 	@NotBlank
-	private String name;
+	private String title;
 
 	@NotEmpty
 	private int year;
