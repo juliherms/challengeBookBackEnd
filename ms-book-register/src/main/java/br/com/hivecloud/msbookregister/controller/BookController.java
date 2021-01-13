@@ -77,10 +77,10 @@ public class BookController {
 	}
 
 	@ApiOperation("Find all comments by book")
-	@GetMapping("{idBook}/comments")
-	public ResponseEntity<Page<Comment>> listComments(@PathVariable Long idBook, Pageable pageable) {
+	@GetMapping("{id}/comments")
+	public ResponseEntity<Page<Comment>> listComments(@PathVariable Long id, Pageable pageable) {
 
-		Page<Comment> commentsList = service.findCommentsByBook(idBook, pageable);
+		Page<Comment> commentsList = service.findCommentsByBook(id, pageable);
 		return ResponseEntity.ok(commentsList);
 	}
 
