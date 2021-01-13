@@ -20,22 +20,22 @@ public class BookService {
 
 	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 	public Page<Book> findAll(Pageable pageable) {
-
 		return repo.findAll(pageable);
+	}
 
+	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+	public Page<Book> findByTitle(String title, Pageable pageable) {
+		return repo.findByTitleLike(title, pageable);
 	}
 
 	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 	public List<Book> findByYear(int year) {
-
 		return repo.findByYear(year);
 	}
 
 	@Transactional
 	public Book create(Book book) {
-
 		repo.save(book);
-
 		return book;
 	}
 
