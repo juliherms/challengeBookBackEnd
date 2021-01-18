@@ -99,4 +99,4 @@ $ ng serve -o
 - Implementação de testes automatizados
 - Implementação de automatização de Delivery através do Jenkins
 - Escalabilidade com o K8S
-
+- Segue repositório de um projeto modelo criado por mim atendendo essas condições: [projeto](https://github.com/juliherms/ms-parking-api)
