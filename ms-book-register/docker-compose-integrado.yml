@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+
+  #Book API
+  book-api: 
+    container_name: book-api
+    image: book-api:v1
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql-database-int
+
+  #MySQL Database 
+  mysql-database-int: 
+    container_name: mysql-book-int
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 12345
+      MYSQL_DATABASE: book
+      MYSQL_ROOT_PASSWORD: 12345
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - mysql-db-file-int:/var/lib/mysql
+            
+  #Prometheus for capture metrics    
+  prometheus-int:
+     image: prom/prometheus:latest
+     container_name: prometheus_book_int
+     volumes:
+     - "./src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml"
+     command:
+     - "--config.file=/etc/prometheus/prometheus.yml"
+     ports:
+     - 9090:9090  
+     
+  #Grafana for diplay graphics 
+  grafana-int:
+     image: grafana/grafana:latest
+     container_name: grafana_book_int
+     ports:
+     - 3000:3000
+      
+# Names our volume
+volumes:
+  mysql-db-file-int:
