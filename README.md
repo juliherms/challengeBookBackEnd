@@ -56,27 +56,27 @@ Já o Grafana é o responsável por expor esses dados de forma gráfica utilizan
 
 - Executando com a API encapsulada em uma imagem docker local
 ```sh
-	#Realiza um clone do repositório
-	$ git clone https://github.com/juliherms/challengeBookBackEnd.git  
-	#Aponta para a pasta do projeto
-    $ cd ms-book-register
-	#Executa o build do maven
-	$ mvn clean package
-	#Cria a imagem básica da API. Em nosso caso a v1.
-	$ docker build -t book-api:v1 .
-	#Executa o docker compose utilizando a imagem criada no step anterior
-	$ docker-compose -f docker-compose-integrado.yml up
+#Realiza um clone do repositório
+$ git clone https://github.com/juliherms/challengeBookBackEnd.git  
+#Aponta para a pasta do projeto
+$ cd ms-book-register
+#Executa o build do maven
+$ mvn clean package
+#Cria a imagem básica da API. Em nosso caso a v1.
+$ docker build -t book-api:v1 .
+#Executa o docker compose utilizando a imagem criada no step anterior
+$ docker-compose -f docker-compose-integrado.yml up
 ```
 
 - Executando através do Maven
 ```sh
-	#Realiza um clone do repositório
-	$ git clone https://github.com/juliherms/challengeBookBackEnd.git 
-	#Aponta para a pasta do projeto
-    $ cd ms-book-register
-	#Executa as dependências da aplicação (mySQL, Prometheus e Grafana)
-	docker-compose up
-	#Executa a aplicação na porta 8080 através do maven
-    $ mvn spring-boot:run
+#Realiza um clone do repositório
+$ git clone https://github.com/juliherms/challengeBookBackEnd.git 
+#Aponta para a pasta do projeto
+$ cd ms-book-register
+#Executa as dependências da aplicação (mySQL, Prometheus e Grafana)
+docker-compose up
+#Executa a aplicação na porta 8080 através do maven
+$ mvn spring-boot:run
 ```
 
