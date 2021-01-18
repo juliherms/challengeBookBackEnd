@@ -7,6 +7,8 @@ Aplicação responsável por gerenciar recomendações de livros e suas avaliaç
 - Java SE Development Kit ( 8 ou superior) - Obrigatório
 - Maven (Obrigatório)
 - Docker (Obrigatório)
+- Node e NPM (Obrigatório)
+- Angular (Obrigatório)
 - ModelMapper
 - Swagger
 - Prometheus
@@ -37,6 +39,8 @@ Documentação do Swagger: http://localhost:8080/swagger-ui.html
 
 Aplicação FrontEnd construída em Angular 11 responsável por realizar a interação com o usuário final.
 Para a pesquisa de livros foi utilizar a API externa do Google Books.
+
+Configuração das URL's (interna e externa) : [booksapi.ts](https://github.com/juliherms/challengeBookFrontEnd/blob/master/src/app/core/booksapi.ts) 
 
 <img src="img/principal.png">
 <img src="img/autocomplete.png">
@@ -79,4 +83,20 @@ docker-compose up
 #Executa a aplicação na porta 8080 através do maven
 $ mvn spring-boot:run
 ```
+
+- Executando o Front end
+```sh
+#Realiza um clone do repositório
+$ git clone https://github.com/juliherms/challengeBookFrontEnd.git
+#Instala as dependências de acordo com o package.json
+$ npm install
+#Compila e executa aplicação abrindo no browser
+$ ng serve -o
+```
+
+### Possíveis melhorias
+
+- Implementação de testes automatizados
+- Implementação de automatização de Delivery através do Jenkins
+- Escalabilidade com o K8S
 
