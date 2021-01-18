@@ -20,6 +20,8 @@ import br.com.hivecloud.msbookregister.mapper.BookMapper;
 import br.com.hivecloud.msbookregister.model.Book;
 import br.com.hivecloud.msbookregister.model.Comment;
 import br.com.hivecloud.msbookregister.service.BookService;
+import io.micrometer.core.annotation.Counted;
+import io.micrometer.core.annotation.Timed;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,6 +51,8 @@ public class BookController {
 	 * @return
 	 */
 	@PostMapping
+	@Timed("create.book")
+	@Counted("create.counted.book")
 	@ApiOperation(value = "create books", response = BookDTO.class)
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "CREATED") })
 	public ResponseEntity<BookDTO> create(@RequestBody @Valid BookDTO dto) {

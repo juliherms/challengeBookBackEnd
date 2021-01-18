@@ -41,6 +41,16 @@ Para a pesquisa de livros foi utilizar a API externa do Google Books.
 <img src="img/principal.png">
 <img src="img/autocomplete.png">
 
+### Monitoramento
+
+Para monitoramento da API foi utilizado Prometheus e Grafana. O Spring Boot expõe as métrica no formato prometheus através do endpoint http://localhost:8080/actuator/prometheus
+onde o scrap deste dado é configurado através do arquivo prometheus.yml passado como parâmetro na criação da imagem docker.
+
+Já o Grafana é o responsável por expor esses dados de forma gráfica utilizando o prometheus como datasoruce.
+
+<img src="img/prometheus.PNG">
+<img src="img/grafana.PNG">
+
 
 ### Setup Containers
 
