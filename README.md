@@ -27,14 +27,19 @@ Aplicação responsável por gerenciar recomendações de livros e suas avaliaç
 
 ### Book API
 
+Aplicação Backend construída com Spring Boot responsável por prover os endpoints para a solução frontend.
+
 Documentação do Swagger: http://localhost:8080/swagger-ui.html
 
 <img src="img/swagger.PNG">
 
 ### Aplicação Front End
 
-<img src="img/principal.PNG">
-<img src="img/autocomplete.PNG">
+Aplicação FrontEnd construída em Angular 11 responsável por realizar a interação com o usuário final.
+Para a pesquisa de livros foi utilizar a API externa do Google Books.
+
+<img src="img/principal.png">
+<img src="img/autocomplete.png">
 
 
 ### Setup Containers
