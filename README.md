@@ -6,7 +6,7 @@ Aplicação responsável por gerenciar recomendações de livros e suas avaliaç
 
 - Java SE Development Kit ( 8 ou superior) - Obrigatório
 - Maven
-- Docker
+- Docker (Obrigatório)
 - ModelMapper
 - Swagger
 - Prometheus
