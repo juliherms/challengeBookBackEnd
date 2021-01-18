@@ -27,6 +27,10 @@ public class UserBook {
 	@JoinColumn(name = "user_id")
 	private User user;
 
+	@ManyToOne()
+	@JoinColumn(name = "book_id")
+	private Book book;
+
 	private int level;
 
 	private String title;

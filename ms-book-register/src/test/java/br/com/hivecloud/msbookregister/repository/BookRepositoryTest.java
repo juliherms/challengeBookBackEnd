@@ -26,7 +26,7 @@ public class BookRepositoryTest {
 		Book b = new Book();
 		b.setAuthor("Author Test");
 		b.setTitle("Title Test");
-		b.setYear(2020);
+		b.setYear("2020");
 
 		return b;
 

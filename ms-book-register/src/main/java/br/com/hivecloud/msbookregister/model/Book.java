@@ -30,7 +30,11 @@ public class Book {
 	private String title;
 
 	private String author;
+	
+	private String imageLink;
+	
+	private int pageCount;
 
-	private int year;
-
+	private String year;
+	
 }

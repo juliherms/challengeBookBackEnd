@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.hivecloud.msbookregister.exception.NotFoundException;
 import br.com.hivecloud.msbookregister.model.Book;
 import br.com.hivecloud.msbookregister.model.Comment;
+import br.com.hivecloud.msbookregister.model.User;
 import br.com.hivecloud.msbookregister.repository.BookRepository;
 
 @Service
@@ -22,6 +24,16 @@ public class BookService {
 	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 	public Page<Book> findAll(Pageable pageable) {
 		return repo.findAll(pageable);
+	}
+	
+	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+	public Book findById(Long id) {
+		
+		Book book = repo.findById(id).orElseThrow(() -> 
+		new NotFoundException(String.format("ID do Book não encontrado: %s ",id.toString())) 
+		);
+		
+		return book;
 	}
 
 	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
