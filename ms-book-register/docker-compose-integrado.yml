@@ -6,10 +6,16 @@ services:
   book-api: 
     container_name: book-api
     image: book-api:v1
+    environment:
+      DATABASE_SERVER: mysql-database-int
+      DATABASE_USER: root
+      DATABASE_PASS: 12345
     ports:
       - 8080:8080
     depends_on:
       - mysql-database-int
+    networks:
+    - minha-rede
 
   #MySQL Database 
   mysql-database-int: 
@@ -30,6 +36,8 @@ services:
       # Where our data will be persisted
     volumes:
       - mysql-db-file-int:/var/lib/mysql
+    networks:
+    - minha-rede
             
   #Prometheus for capture metrics    
   prometheus-int:
@@ -41,6 +49,8 @@ services:
      - "--config.file=/etc/prometheus/prometheus.yml"
      ports:
      - 9090:9090  
+     networks:
+     - minha-rede
      
   #Grafana for diplay graphics 
   grafana-int:
@@ -48,7 +58,16 @@ services:
      container_name: grafana_book_int
      ports:
      - 3000:3000
+     networks:
+     - minha-rede
+     
       
 # Names our volume
 volumes:
   mysql-db-file-int:
+  
+#Network
+networks: 
+  minha-rede:
+    driver: bridge
+ 
