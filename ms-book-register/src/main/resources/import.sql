@@ -10,8 +10,8 @@ INSERT INTO tb_user(name,login,password,email) VALUES ('Laura', 'laura','12345',
 
 INSERT INTO tb_comment(date,description,book_id,user_id) VALUES (NOW(), 'Livro excelente',1,1)
 
-INSERT INTO tb_user_book(description,level,status,title,user_id,book_id) VALUES ('livro muito bom',4,1,'recomendo',1,1)
-INSERT INTO tb_user_book(description,level,status,title,user_id,book_id) VALUES ('livro muito bom',4,1,'recomendo',1,4)
+-- INSERT INTO tb_user_book(description,level,status,title,user_id,book_id) VALUES ('livro muito bom',4,1,'recomendo',1,1)
+-- INSERT INTO tb_user_book(description,level,status,title,user_id,book_id) VALUES ('livro muito bom',4,1,'recomendo',1,4)
 
 
 INSERT INTO tb_target_book(quantity,quantity_read,year,user_id) VALUES (10,5,2020,1)
