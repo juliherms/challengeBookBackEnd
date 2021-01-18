@@ -21,7 +21,7 @@ Aplicação responsável por gerenciar recomendações de livros e suas avaliaç
 |--------------------------|------------|---------------------------------------------------|
 | Prometheus               | 9090       | Responsável por capturar as métricas da API(Observabilidade)  |
 | Grafana                  | 3000       | Responsável por exeibir de forma gráficas as métricas capturadas                        | 
-| MySQL Database           | 5432       | Responsável por Armazenar os dados da API         |
+| MySQL Database           | 3306       | Responsável por Armazenar os dados da API         |
 | BookAPI                  | 8080       | Responsável por Gerenciar os Livros                      |
 | FrontEnd                 | 4200       | FrontEnd da Aplicação                      |
 
